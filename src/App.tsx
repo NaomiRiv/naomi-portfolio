@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Button } from "@/components/ui/button";
+import { motion } from "motion/react";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,6 +25,7 @@ function App() {
           </button>
         </div>
         <Button>Click me</Button>
+        <motion.div className="w-16 h-16 bg-blue-500 flex items-center justify-center" animate={{ rotate: 45 }} transition={{ duration: 1 }} />
         <p className="mt-4 text-gray-600">
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
