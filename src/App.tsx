@@ -1,38 +1,23 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { Button } from "@/components/ui/button";
-import { motion } from "motion/react";
-import { Camera } from "lucide-react";
-
+import { Header } from "./components/layout/header";
+import { Hero } from "./components/sections/hero";
+import { Experience } from "./components/sections/experience";
+import { Projects } from "./components/sections/projects";
+import { Skills } from "./components/sections/skills";
+import { Contact } from "./components/sections/contact";
+import { Footer } from "./components/layout/footer";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-        <div className="flex items-center gap-4 mb-8">
-          <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-        <h1 className="text-2xl font-bold mb-4">Vite + React + Tailwind CSS</h1>
-        <div className="card">
-          <button type="button" onClick={() => setCount((count) => count + 1)} className="btn">
-            count is {count}
-          </button>
-          <Camera color="red" size={48} />
-        </div>
-        <Button>Click me</Button>
-        <motion.div className="w-16 h-16 bg-blue-500 flex items-center justify-center" animate={{ rotate: 45 }} transition={{ duration: 1 }} />
-        <p className="mt-4 text-gray-600">
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-    </>
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+      <main>
+        <Hero />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
   );
 }
 
