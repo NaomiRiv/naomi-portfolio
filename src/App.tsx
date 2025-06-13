@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
+import { Camera } from "lucide-react";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +24,7 @@ function App() {
           <button type="button" onClick={() => setCount((count) => count + 1)} className="btn">
             count is {count}
           </button>
+          <Camera color="red" size={48} />
         </div>
         <Button>Click me</Button>
         <motion.div className="w-16 h-16 bg-blue-500 flex items-center justify-center" animate={{ rotate: 45 }} transition={{ duration: 1 }} />
