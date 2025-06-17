@@ -54,7 +54,9 @@ export function Header() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Naomi Rivkin
+            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              Naomi Rivkin
+            </span>
           </motion.div>
 
           {/* Desktop Navigation */}
