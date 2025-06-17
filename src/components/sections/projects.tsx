@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Filter } from "lucide-react";
 
 export function Projects() {
   const [selectedFilter, setSelectedFilter] = useState("All");
@@ -55,8 +57,29 @@ export function Projects() {
             Featured <span className="text-purple-500">Projects</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A showcase of my work.
+            A showcase of my work
           </p>
+        </motion.div>
+        {/* Filter Buttons */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          {categories.map((category) => (
+            <Button
+              key={category}
+              onClick={() => setSelectedFilter(category)}
+              variant={selectedFilter === category ? "default" : "outline"}
+              className="group"
+            >
+              <Filter className="w-4 h-4 mr-2" />
+              {category}
+            </Button>
+          ))}
         </motion.div>
       </div>
     </section>
