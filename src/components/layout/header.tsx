@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ export function Header() {
     { href: "#skills", label: "Skills" },
     { href: "#contact", label: "Contact" },
   ];
-  
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -27,9 +28,22 @@ export function Header() {
       setIsMenuOpen(false);
     }
   };
-  
+
   return (
-    <header>
-    </header>
+    <motion.header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg"
+          : "bg-transparent"
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      style={{
+        backgroundColor: isScrolled
+          ? "hsl(var(--background) / 0.95)"
+          : "transparent",
+      }}
+    ></motion.header>
   );
 }
