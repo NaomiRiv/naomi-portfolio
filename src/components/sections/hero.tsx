@@ -109,6 +109,64 @@ export function Hero() {
               </Button>
             </motion.div>
           </motion.div>
+          {/* Profile Image */}
+          <motion.div
+            className="flex justify-center order-1 lg:order-2"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative">
+              <motion.div
+                className="w-80 h-80 rounded-full bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 flex items-center justify-center overflow-hidden"
+                animate={{ rotate: [0, 360] }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
+                <div className="w-72 h-72 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center overflow-hidden">
+                  <img
+                    src="image.png"
+                    alt="Naomi Rivkin"
+                    className="w-64 h-64 rounded-full object-cover object-center"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Floating Elements */}
+              <motion.div
+                className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full"
+                animate={{ y: [0, -10, 0] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.div
+                className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-600 rounded-full"
+                animate={{ y: [0, -8, 0] }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
+              />
+              <motion.div
+                className="absolute top-1/4 -left-8 w-4 h-4 bg-purple-600 rounded-full"
+                animate={{ x: [0, -5, 0] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
