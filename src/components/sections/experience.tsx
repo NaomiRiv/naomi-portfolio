@@ -1,3 +1,6 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Calendar, MapPin, Briefcase, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Experience() {
@@ -90,8 +93,184 @@ export function Experience() {
             A timeline of my professional journey and academic achievements
           </p>
         </motion.div>
+        <div className="relative">
+          {/* Timeline Line - Desktop */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-border" />
+
+          {/* Timeline Line - Mobile */}
+          <div className="md:hidden absolute left-8 h-full w-0.5 bg-border" />
+
+          <div className="space-y-8 md:space-y-12">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                className="flex items-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-30px" }}
+              >
+                {/* Mobile Layout */}
+                <div className="flex md:hidden w-full">
+                  {/* Timeline Node - Mobile */}
+                  <div className="relative flex items-center justify-center mt-4 mr-6 w-4 h-4 bg-primary rounded-full border-4 border-background z-10 flex-shrink-0">
+                    <div className="w-2 h-2 bg-background rounded-full" />
+                  </div>
+
+                  <div className="flex-1">
+                    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                      <CardHeader>
+                        <div className="flex items-center gap-2 mb-2">
+                          {exp.type === "work" ? (
+                            <Briefcase className="w-5 h-5 text-primary" />
+                          ) : (
+                            <GraduationCap className="w-5 h-5 text-blue-600" />
+                          )}
+                          <Badge
+                            variant={
+                              exp.type === "work" ? "default" : "secondary"
+                            }
+                          >
+                            {exp.type === "work" ? "Work" : "Education"}
+                          </Badge>
+                        </div>
+                        <CardTitle className="group-hover:text-primary transition-colors">
+                          {exp.title}
+                        </CardTitle>
+                        <div className="text-lg font-semibold text-muted-foreground">
+                          {exp.company}
+                        </div>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            {exp.period}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MapPin className="w-4 h-4" />
+                            {exp.location}
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                          {exp.description}
+                        </p>
+
+                        {exp.achievements && (
+                          <div className="mb-4">
+                            <h4 className="font-semibold mb-2">
+                              Key Achievements:
+                            </h4>
+                            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                              {exp.achievements.map((achievement, i) => (
+                                <li key={i}>{achievement}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        <div className="flex flex-wrap gap-2">
+                          {exp.technologies.map((tech) => (
+                            <Badge
+                              key={tech}
+                              variant="outline"
+                              className="text-xs"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Desktop Layout */}
+                <div
+                  className={`hidden md:flex items-center w-full ${
+                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                  }`}
+                >
+                  <div className="flex-1 px-6">
+                    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                      <CardHeader>
+                        <div className="flex items-center gap-2 mb-2">
+                          {exp.type === "work" ? (
+                            <Briefcase className="w-5 h-5 text-primary" />
+                          ) : (
+                            <GraduationCap className="w-5 h-5 text-blue-600" />
+                          )}
+                          <Badge
+                            variant={
+                              exp.type === "work" ? "default" : "secondary"
+                            }
+                          >
+                            {exp.type === "work" ? "Work" : "Education"}
+                          </Badge>
+                        </div>
+                        <CardTitle className="group-hover:text-primary transition-colors">
+                          {exp.title}
+                        </CardTitle>
+                        <div className="text-lg font-semibold text-muted-foreground">
+                          {exp.company}
+                        </div>
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            {exp.period}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MapPin className="w-4 h-4" />
+                            {exp.location}
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                          {exp.description}
+                        </p>
+
+                        {exp.achievements && (
+                          <div className="mb-4">
+                            <h4 className="font-semibold mb-2">
+                              Key Achievements:
+                            </h4>
+                            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                              {exp.achievements.map((achievement, i) => (
+                                <li key={i}>{achievement}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        <div className="flex flex-wrap gap-2">
+                          {exp.technologies.map((tech) => (
+                            <Badge
+                              key={tech}
+                              variant="outline"
+                              className="text-xs"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  {/* Timeline Node - Desktop */}
+                  <div className="relative flex items-center justify-center w-4 h-4 bg-primary rounded-full border-4 border-background z-10">
+                    <div className="w-2 h-2 bg-background rounded-full" />
+                  </div>
+
+                  <div className="flex-1 px-6" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
-      experience
     </section>
   );
 }
