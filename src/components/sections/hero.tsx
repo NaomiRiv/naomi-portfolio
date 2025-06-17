@@ -118,7 +118,7 @@ export function Hero() {
           >
             <div className="relative">
               <motion.div
-                className="w-80 h-80 rounded-full bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 flex items-center justify-center overflow-hidden"
+                className="w-80 h-80 rounded-full bg-gradient-to-br from-purple-400/20 via-blue-500/20 to-purple-500/20 flex items-center justify-center overflow-hidden"
                 animate={{ rotate: [0, 360] }}
                 transition={{
                   duration: 20,
@@ -126,7 +126,7 @@ export function Hero() {
                   ease: "linear",
                 }}
               >
-                <div className="w-72 h-72 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center overflow-hidden">
+                <div className="w-72 h-72 rounded-full bg-gradient-to-br from-purple-400 to-blue-600 flex items-center justify-center overflow-hidden">
                   <img
                     src="image.png"
                     alt="Naomi Rivkin"
@@ -137,7 +137,7 @@ export function Hero() {
 
               {/* Floating Elements */}
               <motion.div
-                className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full"
+                className="absolute -top-4 -right-4 w-8 h-8 bg-purple-500 rounded-full"
                 animate={{ y: [0, -10, 0] }}
                 transition={{
                   duration: 2,
