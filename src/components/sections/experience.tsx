@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export function Experience() {
   const experiences = [
     {
@@ -72,5 +74,24 @@ export function Experience() {
     },
   ];
 
-  return <section id="experience">experience</section>;
+  return (
+    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/50">
+      <div className="container mx-auto">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            Experience & <span className="text-purple-500">Education</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            A timeline of my professional journey and academic achievements
+          </p>
+        </motion.div>
+      </div>
+      experience
+    </section>
+  );
 }
