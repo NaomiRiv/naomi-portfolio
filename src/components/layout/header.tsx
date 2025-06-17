@@ -86,6 +86,31 @@ export function Header() {
           </div>
         </div>
       </div>
+      {/* Mobile Navigation Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="md:hidden border-b border-border bg-background/95 backdrop-blur-md"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <nav className="container mx-auto px-4 py-4 space-y-2">
+              {navItems.map((item) => (
+                <Button
+                  key={item.href}
+                  variant="ghost"
+                  onClick={() => scrollToSection(item.href)}
+                  className="w-full justify-start"
+                >
+                  {item.label}
+                </Button>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
