@@ -30,7 +30,7 @@ export function Hero() {
               >
                 Hi, I'm{" "}
                 <span className="bg-gradient-to-r from-purple-500 via-blue-600 to-purple-600 bg-clip-text text-transparent ">
-                  Naomi
+                  Naomi Rivkin
                 </span>
               </motion.h1>
               <motion.p
