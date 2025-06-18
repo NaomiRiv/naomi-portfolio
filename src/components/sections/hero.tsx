@@ -29,11 +29,10 @@ export function Hero() {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 Hi, I'm{" "}
-                <span className="bg-gradient-to-r from-purple-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-purple-500 via-blue-600 to-purple-600 bg-clip-text text-transparent ">
                   Naomi
                 </span>
               </motion.h1>
-
               <motion.p
                 className="text-xl sm:text-2xl text-muted-foreground max-w-2xl"
                 initial={{ opacity: 0, y: 20 }}

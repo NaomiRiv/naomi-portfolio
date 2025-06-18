@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { ModeToggle } from "../mode-toggle";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,9 +72,11 @@ export function Header() {
                 {item.label}
               </Button>
             ))}
+            <ModeToggle />
           </nav>
           {/* Mobile Navigation Toggle */}
           <div className="md:hidden flex items-center space-x-2">
+            <ModeToggle />
             <Button
               variant="ghost"
               size="sm"
