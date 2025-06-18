@@ -16,3 +16,18 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build the project
+        run: pnpm build
+      - name: Check if the build was successful
+        run: |
+          if [ -f dist/index.js ]; then
+            echo "✅ Build was successful!"
+          else
+            echo "❌ Build failed!" >&2
+            exit 1
+          fi
