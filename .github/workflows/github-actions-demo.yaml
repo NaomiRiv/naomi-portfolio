@@ -31,10 +31,10 @@ jobs:
             echo "❌ Build failed!" >&2
             exit 1
           fi
-      - name: Remove old assets from S3 bucket
-        run: |
-          aws s3 rm s3://naomirivkin.dev/
       - name: aws s3 sync
         run: |
           aws s3 cp ./dist s3://naomirivkin.dev/ --recursive
       - run: echo "🚀 The assets have been successfully uploaded to the S3 bucket"
+      - name: invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id E3BF9LT1DXP2NK  --paths "/*"
