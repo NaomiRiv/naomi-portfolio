@@ -25,7 +25,7 @@ jobs:
         run: pnpm build
       - name: Check if the build was successful
         run: |
-          if [ -f dist/index.js ]; then
+          if [ -f dist/assets/index-*.js ]; then
             echo "✅ Build was successful!"
           else
             echo "❌ Build failed!" >&2
