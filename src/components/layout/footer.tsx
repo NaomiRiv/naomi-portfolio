@@ -29,8 +29,7 @@ export function Footer() {
               <span>and lots of coffee.</span>
             </div>
             <p className="text-xs text-muted-foreground">
-              Computer Science Graduate • Technion Alumni • Problem Solver •
-              Test
+              Computer Science Graduate • Technion Alumni • Problem Solver
             </p>
           </div>
         </div>
