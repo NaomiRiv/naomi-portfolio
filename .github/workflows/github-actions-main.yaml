@@ -1,11 +1,11 @@
-name: Deploy to dev.naomirivkin.dev
-run-name: Deploy to dev.naomirivkin.dev
-# This workflow is triggered on pushes to the dev branch
+name: Deploy to naomirivkin.dev
+run-name: Deploy to naomirivkin.dev
 
 on:
   push:
     branches:
-      - dev
+      - main
+      - master
 
 jobs:
   Explore-GitHub-Actions:
@@ -45,8 +45,8 @@ jobs:
           aws-region: us-east-1
       - name: aws s3 sync
         run: |
-          aws s3 cp ./dist s3://dev.naomirivkin.dev/ --recursive
+          aws s3 cp ./dist s3://naomirivkin.dev/ --recursive
       - run: echo "🚀 The assets have been successfully uploaded to the S3 bucket"
       - name: invalidate CloudFront cache
         run: |
-          aws cloudfront create-invalidation --distribution-id E2P11EGYSASU03  --paths "/*"
+          aws cloudfront create-invalidation --distribution-id E3BF9LT1DXP2NK  --paths "/*"
