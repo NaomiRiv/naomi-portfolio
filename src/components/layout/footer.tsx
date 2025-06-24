@@ -2,10 +2,14 @@ import { Github, Mail, Download, Heart, Linkedin } from "lucide-react";
 import { SocialButton } from "./social-button";
 
 const socialLinks = [
-  { Icon: Github, link: 'https://github.com/NaomiRiv', label: 'Github' },
-  { Icon: Linkedin, link: 'https://www.linkedin.com/in/naomi-rivkin/', label: 'LinkedIn' },
-  { Icon: Mail, link: 'mailto:naomi@dotcore.co.il', label: 'Email' },
-  { Icon: Download, link: './resume.pdf', label: 'Resume' },
+  { Icon: Github, link: "https://github.com/NaomiRiv", label: "Github" },
+  {
+    Icon: Linkedin,
+    link: "https://www.linkedin.com/in/naomi-rivkin/",
+    label: "LinkedIn",
+  },
+  { Icon: Mail, link: "mailto:naomi@dotcore.co.il", label: "Email" },
+  { Icon: Download, link: "./resume.pdf", label: "Resume" },
 ];
 
 export function Footer() {
@@ -24,7 +28,10 @@ export function Footer() {
               <Heart className="w-4 h-4 mx-1 text-red-500" />
               <span>and lots of coffee.</span>
             </div>
-            <p className="text-xs text-muted-foreground">Computer Science Graduate • Technion Alumni • Problem Solver</p>
+            <p className="text-xs text-muted-foreground">
+              Computer Science Graduate • Technion Alumni • Problem Solver •
+              Test
+            </p>
           </div>
         </div>
       </div>
