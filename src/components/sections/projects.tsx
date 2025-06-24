@@ -15,6 +15,7 @@ export function Projects() {
         "A Node.js app that monitors clearance items on the H&M Israel website. The system scrapes product data from specified category URLs and notifies users via Telegram when new items are added, helping users save time and money.",
       image: "🛍️",
       technologies: [
+        "JavaScript",
         "Node.js",
         "Cheerio",
         "SQLite",
@@ -127,7 +128,11 @@ export function Projects() {
 
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs">
+                        <Badge
+                          key={tech}
+                          variant="outline"
+                          className="text-md text-purple-100"
+                        >
                           {tech}
                         </Badge>
                       ))}
