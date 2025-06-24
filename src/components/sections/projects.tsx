@@ -10,6 +10,33 @@ export function Projects() {
 
   const projects = [
     {
+      title: "Personal Portfolio",
+      description:
+        "A modern, responsive personal portfolio website showcasing my projects, skills, and experience. Built with React and styled using Tailwind CSS, the site includes a fully automated CI/CD pipeline using GitHub Actions, which deploys updates to AWS S3 and CloudFront on every push to main or dev branches.",
+      image: "🌐",
+      technologies: [
+        "TypeScript",
+        "React",
+        "Tailwind CSS",
+        "Vite",
+        "CI/CD",
+        "GitHub Actions",
+        "AWS S3",
+        "CloudFront",
+      ],
+      category: "Frontend",
+      date: "June 2025",
+      github: "https://github.com/NaomiRiv/naomi-portfolio",
+      demo: "https://naomirivkin.dev",
+      features: [
+        "Fully responsive design",
+        "Built with modern React + Vite stack",
+        "Deployed to AWS S3 + CloudFront",
+        "Automated CI/CD with GitHub Actions",
+        "Separate dev/prod pipelines triggered by branch",
+      ],
+    },
+    {
       title: "HM Clearance Tracker",
       description:
         "A Node.js app that monitors clearance items on the H&M Israel website. The system scrapes product data from specified category URLs and notifies users via Telegram when new items are added, helping users save time and money.",
@@ -38,7 +65,7 @@ export function Projects() {
     },
   ];
 
-  const categories = ["All", "Backend"];
+  const categories = ["All", "Frontend", "Backend"];
 
   const filteredProjects =
     selectedFilter === "All"
