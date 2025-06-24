@@ -130,7 +130,7 @@ export function Projects() {
                       {project.technologies.map((tech) => (
                         <Badge
                           key={tech}
-                          variant="outline"
+                          variant="primary"
                           className="text-md text-purple-100"
                         >
                           {tech}
