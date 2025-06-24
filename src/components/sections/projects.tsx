@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, Filter, Calendar } from "lucide-react";
@@ -9,6 +15,34 @@ export function Projects() {
   const [selectedFilter, setSelectedFilter] = useState("All");
 
   const projects = [
+    {
+      title: "Personal Portfolio",
+      description:
+        "A modern, responsive personal portfolio website showcasing my projects, skills, and experience. Built with React and styled using Tailwind CSS, the site includes a fully automated CI/CD pipeline using GitHub Actions, which deploys updates to AWS S3 and CloudFront on every push to main or dev branches.",
+      image: "🌐",
+      technologies: [
+        "TypeScript",
+        "React",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Framer Motion",
+        "Vite",
+        "CI/CD",
+        "AWS",
+        "GitHub Actions",
+      ],
+      category: "Frontend",
+      date: "June 2025",
+      github: "https://github.com/NaomiRiv/naomi-portfolio",
+      demo: "https://naomirivkin.dev",
+      features: [
+        "Fully responsive design",
+        "Built with modern React + Vite stack",
+        "Fully deployed to AWS (S3, CloudFront, Route 53)",
+        "Automated CI/CD with GitHub Actions",
+        "Separate dev/prod pipelines triggered by branch",
+      ],
+    },
     {
       title: "HM Clearance Tracker",
       description:
@@ -38,7 +72,7 @@ export function Projects() {
     },
   ];
 
-  const categories = ["All", "Backend"];
+  const categories = ["All", "Frontend", "Backend"];
 
   const filteredProjects =
     selectedFilter === "All"
@@ -96,7 +130,7 @@ export function Projects() {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 layout
               >
-                <Card className="h-full group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <Card className="h-full justify-between group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                   <CardHeader>
                     <div className="text-4xl mb-4 text-center">
                       {project.image}
@@ -111,12 +145,11 @@ export function Projects() {
                     <CardTitle className="group-hover:text-primary transition-colors">
                       {project.title}
                     </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
                     <p className="text-muted-foreground leading-relaxed">
                       {project.description}
                     </p>
-
+                  </CardHeader>
+                  <CardContent className="space-y-4">
                     <div>
                       <h4 className="font-semibold mb-2">Key Features:</h4>
                       <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
@@ -125,7 +158,8 @@ export function Projects() {
                         ))}
                       </ul>
                     </div>
-
+                  </CardContent>
+                  <CardFooter className="flex flex-col pt-4">
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
                         <Badge
@@ -137,15 +171,14 @@ export function Projects() {
                         </Badge>
                       ))}
                     </div>
-
-                    <div className="flex gap-2 pt-4">
-                      <Button size="sm" className="flex-1 group" asChild>
+                    <div className="flex gap-2 pt-8 w-full">
+                      <Button size="sm" className="flex-1 group " asChild>
                         <a
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Github className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                          <Github className="w-50% h-4 mr-2 group-hover:scale-110 transition-transform" />
                           Code
                         </a>
                       </Button>
@@ -165,7 +198,7 @@ export function Projects() {
                         </a>
                       </Button>
                     </div>
-                  </CardContent>
+                  </CardFooter>
                 </Card>
               </motion.div>
             ))}
